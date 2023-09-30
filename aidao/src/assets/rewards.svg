@@ -1,0 +1,11 @@
+<svg width="64" height="65" viewBox="0 0 64 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ri:trophy-fill">
+<path id="Vector" d="M34.6801 45.3762V50.8749H48.0134V56.2082H16.0134V50.8749H29.3467V45.3736C24.1913 44.7235 19.4502 42.2143 16.0134 38.3169C12.5766 34.4195 10.6801 29.4019 10.6801 24.2056V8.20557H53.3467V24.2056C53.3466 29.4019 51.4502 34.4195 48.0134 38.3169C44.5765 42.2143 39.8355 44.7261 34.6801 45.3762ZM2.68005 13.5416H8.01339V24.2082H2.68005V13.5416ZM56.0134 13.5416H61.3467V24.2082H56.0134V13.5416Z" fill="url(#paint0_linear_144_1715)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_144_1715" x1="32.0134" y1="8.20557" x2="32.0134" y2="56.2082" gradientUnits="userSpaceOnUse">
+<stop stop-color="#ECC606"/>
+<stop offset="1" stop-color="#ECC606" stop-opacity="0.24"/>
+</linearGradient>
+</defs>
+</svg>

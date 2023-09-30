@@ -14,6 +14,10 @@ module.exports = {
 				daigGradient: "linear-gradient(116deg, #D69F31 33.39%, #936C1F 69.3%)",
 				partnerTextGradient:
 					"linear-gradient(259deg, #FFF 41.88%, rgba(255, 255, 255, 0.21) 61.39%)",
+				introTextGradient:
+					"linear-gradient(98deg, #936C1F 44.14%, rgba(144, 105, 27, 0.60) 62.54%)",
+				trainAIGradient:
+					"linear-gradient(93deg, #D69F31 32.86%, #926C1F 82.44%)",
 			},
 			boxShadow: {
 				xl: " 0px 5px 0px 0px #191A23",

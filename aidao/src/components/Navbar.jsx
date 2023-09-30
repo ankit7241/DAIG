@@ -1,6 +1,6 @@
 import profile_image from "../assets/profile_image.png";
 import navLogo from "../assets/NavLogo.png";
-export default function Header() {
+export default function Navbar() {
 	return (
 		<div className="flex pt-1 pr-8 pb-1 pl-4 gap-44 items-center justify-between bg-[#161616]">
 			<div className="flex items-center">
@@ -29,9 +29,9 @@ export default function Header() {
 				<div className="Inter text-white text-2xl leading-6 font-bold"></div>
 			</div>
 			<div className="hidden xl:inline-flex py-3 px-2 justify-center items-center gap-2 rounded-sm border-2 border-[#C2A502] bg-connectWalletGradient">
-				<div className="Inter text-white text-2xl leading-6 font-bold">
+				<button className="Inter text-white text-2xl leading-6 font-bold">
 					Connect Wallet
-				</div>
+				</button>
 			</div>
 		</div>
 	);

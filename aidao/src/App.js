@@ -1,13 +1,21 @@
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Intro from "./components/Intro";
 import Partners from "./components/Partners";
+import Integration from "./components/Integration";
+import TrainAI from "./components/TrainAI";
+import AiPartner from "./components/AiPartner";
 
 function App() {
 	return (
 		<>
-			<Header />
+			<Navbar />
 			<Hero />
 			<Partners />
+			<Intro />
+			<Integration />
+			<TrainAI />
+			<AiPartner />
 		</>
 	);
 }
