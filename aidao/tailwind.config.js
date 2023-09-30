@@ -12,6 +12,8 @@ module.exports = {
 				connectWalletGradient:
 					"linear-gradient(116deg, #BD8928 33.39%, #795B20 66.86%)",
 				daigGradient: "linear-gradient(116deg, #D69F31 33.39%, #936C1F 69.3%)",
+				partnerTextGradient:
+					"linear-gradient(259deg, #FFF 41.88%, rgba(255, 255, 255, 0.21) 61.39%)",
 			},
 			boxShadow: {
 				xl: " 0px 5px 0px 0px #191A23",
