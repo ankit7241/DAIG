@@ -7,7 +7,6 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
 	const [typing, setTyping] = useState(true);
-	const [reset, setReset] = useState(false);
 
 	useEffect(() => {
 		const currentPhrase = phrases[currentPhraseIndex];
@@ -27,42 +26,32 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 					setTyping(false);
 
 					setTimeout(() => {
-						// Erase the typed phrase
-						const eraseInterval = setInterval(() => {
-							setTypedText((prevText) => {
-								if (prevText.length === 0) {
-									clearInterval(eraseInterval);
-
-									// Reset the typing animation
-									setReset(true);
-								}
-								return prevText.slice(0, -1);
-							});
-						}, 100);
+						// Reset the typing animation and move to the next phrase
+						setTypedText("");
+						setTyping(true);
+						setCurrentPhraseIndex(
+							(prevIndex) => (prevIndex + 1) % phrases.length
+						);
 					}, 1000);
 				}, 1000);
 			}
 		}, 100);
 
 		return () => clearInterval(interval);
-	}, [phrases, currentPhraseIndex, reset]);
+	}, [phrases, currentPhraseIndex]);
 
 	useEffect(() => {
 		if (!typing && typedText === "") {
 			onTypingComplete();
-
-			// Move to the next phrase
-			setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
 		}
-	}, [typing, typedText, onTypingComplete, phrases, reset]);
+	}, [typing, typedText, onTypingComplete]);
 
 	return (
 		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-			{typedText}
+			Unlocking the Full Potential Of Daos with {typedText}
 		</div>
 	);
 };
-
 export default function Hero() {
 	const phrases = [
 		"Artificial Intelligence",
