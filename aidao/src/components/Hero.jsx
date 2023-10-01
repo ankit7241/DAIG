@@ -3,30 +3,11 @@ import bgCircleLeft from "../assets/bgCircleLeft.png";
 import bgCircleRight from "../assets/bgCircleRight.png";
 import blurCircle from "../assets/blurCircle.svg";
 import robot from "../assets/robot.png";
-const Typewriter = ({ text }) => {
-	const [typedText, setTypedText] = useState("");
 
-	useEffect(() => {
-		let index = 0;
-		const intervalId = setInterval(() => {
-			setTypedText((prevText) => {
-				const nextLetter = text[index];
-				index += 1;
-				return prevText + (nextLetter !== undefined ? nextLetter : "");
-			});
-
-			if (index === text.length) {
-				clearInterval(intervalId);
-			}
-		}, 100);
-
-		// Cleanup the interval on component unmount
-		return () => clearInterval(intervalId);
-	}, [text]);
-
+const Typewriter = ({ text, onTypingComplete }) => {
 	return (
 		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-			Unlocking the Full Potential Of Daos with {typedText}
+			Unlocking the Full Potential Of Daos with {text}
 		</div>
 	);
 };
@@ -38,15 +19,48 @@ export default function Hero() {
 		"Natural Language Processing",
 	];
 	const [phraseIndex, setPhraseIndex] = useState(0);
+	const [typedText, setTypedText] = useState("");
+
+	const handleTypingComplete = () => {
+		// Set a delay before starting the typing out animation
+		setTimeout(() => {
+			setTypedOut(true);
+		}, 1000);
+	};
+
+	const [typedOut, setTypedOut] = useState(false);
 
 	useEffect(() => {
-		const intervalId = setInterval(() => {
-			setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-		}, 4000); // Switch phrases every 5 seconds
+		if (!typedOut) {
+			// Start typing in the current phrase
+			let index = 0;
+			const intervalId = setInterval(() => {
+				setTypedText((prevText) => {
+					const nextLetter = phrases[phraseIndex][index];
+					index += 1;
+					return prevText + (nextLetter !== undefined ? nextLetter : "");
+				});
 
-		// Cleanup the interval on component unmount
-		return () => clearInterval(intervalId);
-	}, [phrases]);
+				if (index === phrases[phraseIndex].length) {
+					clearInterval(intervalId);
+					// Notify the parent component when typing in is complete
+					handleTypingComplete();
+				}
+			}, 100);
+		} else {
+			// Start typing out the current phrase
+			const intervalId = setInterval(() => {
+				setTypedText((prevText) => prevText.slice(0, -1));
+
+				// Notify when typing out is complete
+				if (typedText.length === 0) {
+					clearInterval(intervalId);
+					setTypedOut(false);
+					setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+				}
+			}, 100);
+		}
+	}, [typedOut, typedText, phrases, phraseIndex]);
 	return (
 		<div className="xl:flex xl:justify-evenly xl:items-center xl:mt-32">
 			<div className="flex flex-col items-center gap-7 mt-12 relative">
@@ -55,7 +69,8 @@ export default function Hero() {
 				<div className="Inter text-white text-3xl text-center font-extrabold xl:hidden">
 					Unlocking the Full Potential Of Daos with AI
 				</div>
-				<Typewriter text={phrases[phraseIndex]} />
+
+				<Typewriter text={typedText} onTypingComplete={handleTypingComplete} />
 
 				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px]">
 					Empower DeFi Governance with AI-Powered Decisions
