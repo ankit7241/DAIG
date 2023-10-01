@@ -1,5 +1,5 @@
 import telegram from "../assets/telegram.png";
-import mobile from "../assets/mobile1.png";
+import mobile from "../assets/mobile.png";
 
 export default function Phone() {
 	return (
