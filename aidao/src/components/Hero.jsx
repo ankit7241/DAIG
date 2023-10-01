@@ -7,11 +7,12 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
 	const [typing, setTyping] = useState(true);
+
 	useEffect(() => {
 		const currentPhrase = phrases[currentPhraseIndex];
 		let index = 0;
 
-		const interval = setInterval(() => {
+		const typeInterval = setInterval(() => {
 			setTypedText((prevText) => {
 				const nextLetter = currentPhrase[index];
 				index += 1;
@@ -19,27 +20,33 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 			});
 
 			if (index === currentPhrase.length) {
-				clearInterval(interval);
+				clearInterval(typeInterval);
 
-				setTimeout(() => {
-					// Erase the typed phrase
-					const eraseInterval = setInterval(() => {
-						setTypedText((prevText) => {
-							if (prevText.length === 0) {
-								clearInterval(eraseInterval);
+				const eraseInterval = setInterval(() => {
+					setTypedText((prevText) => {
+						const newText = prevText.slice(0, -1);
+						return newText;
+					});
 
-								// Set typing to true to trigger the next typing animation
-								setTyping(true);
-							}
-							return prevText.slice(0, -1);
-						});
-					}, 100);
-				}, 1000);
+					if (typedText === "") {
+						clearInterval(eraseInterval);
+
+						setTimeout(() => {
+							// Reset the typing animation and move to the next phrase
+							setTyping(true);
+							setCurrentPhraseIndex(
+								(prevIndex) => (prevIndex + 1) % phrases.length
+							);
+						}, 1000);
+					}
+				}, 50);
 			}
 		}, 100);
 
-		return () => clearInterval(interval);
-	}, [phrases, currentPhraseIndex]);
+		return () => {
+			clearInterval(typeInterval);
+		};
+	}, [phrases, currentPhraseIndex, typedText]);
 
 	useEffect(() => {
 		if (!typing && typedText === "") {
@@ -49,7 +56,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 
 	return (
 		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-			{typedText}
+			Unlocking the Full Potential Of Daos with {typedText}
 		</div>
 	);
 };
