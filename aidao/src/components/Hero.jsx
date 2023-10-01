@@ -1,7 +1,7 @@
 import bgCircleLeft from "../assets/bgCircleLeft.png";
 import bgCircleRight from "../assets/bgCircleRight.png";
 import blurCircle from "../assets/blurCircle.svg";
-import robot from "../assets/robot.png";
+import robot from "../assets/robot2.png";
 export default function Hero() {
 	return (
 		<div className="xl:flex xl:justify-evenly xl:items-center xl:mt-32">
