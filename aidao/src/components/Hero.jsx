@@ -3,7 +3,6 @@ import bgCircleLeft from "../assets/bgCircleLeft.png";
 import bgCircleRight from "../assets/bgCircleRight.png";
 import blurCircle from "../assets/blurCircle.svg";
 import robot from "../assets/robot.png";
-
 const Typewriter = ({ phrases, onTypingComplete }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
@@ -52,17 +51,17 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 		if (!typing && typedText === "") {
 			onTypingComplete();
 
-			// Reset the typing animation
-			setReset(false);
-
 			// Move to the next phrase
 			setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+
+			// Reset the typing animation
+			setReset(false);
 		}
 	}, [typing, typedText, onTypingComplete, phrases, reset]);
 
 	return (
 		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-			Unlocking the Full Potential Of Daos with {typedText}
+			{typedText}
 		</div>
 	);
 };
@@ -86,7 +85,15 @@ export default function Hero() {
 				<div className="Inter text-white text-3xl text-center font-extrabold xl:hidden">
 					Unlocking the Full Potential Of Daos with AI
 				</div>
-				<Typewriter phrases={phrases} onTypingComplete={handleTypingComplete} />
+				<div>
+					<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
+						Unlocking the Full Potential Of Daos with
+					</div>
+					<Typewriter
+						phrases={phrases}
+						onTypingComplete={handleTypingComplete}
+					/>
+				</div>
 
 				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px]">
 					Empower DeFi Governance with AI-Powered Decisions
