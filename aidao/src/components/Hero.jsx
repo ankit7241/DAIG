@@ -4,10 +4,65 @@ import bgCircleRight from "../assets/bgCircleRight.png";
 import blurCircle from "../assets/blurCircle.svg";
 import robot from "../assets/robot.png";
 
-const Typewriter = ({ text, onTypingComplete }) => {
+const Typewriter = ({ phrases, onTypingComplete }) => {
+	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+	const [typedText, setTypedText] = useState("");
+	const [typing, setTyping] = useState(true);
+	const [reset, setReset] = useState(false);
+
+	useEffect(() => {
+		const currentPhrase = phrases[currentPhraseIndex];
+		let index = 0;
+
+		const interval = setInterval(() => {
+			setTypedText((prevText) => {
+				const nextLetter = currentPhrase[index];
+				index += 1;
+				return prevText + (nextLetter !== undefined ? nextLetter : "");
+			});
+
+			if (index === currentPhrase.length) {
+				clearInterval(interval);
+
+				setTimeout(() => {
+					setTyping(false);
+
+					setTimeout(() => {
+						// Erase the typed phrase
+						const eraseInterval = setInterval(() => {
+							setTypedText((prevText) => {
+								if (prevText.length === 0) {
+									clearInterval(eraseInterval);
+
+									// Set reset to trigger the typing animation reset
+									setReset(true);
+								}
+								return prevText.slice(0, -1);
+							});
+						}, 100);
+					}, 1000);
+				}, 1000);
+			}
+		}, 100);
+
+		return () => clearInterval(interval);
+	}, [phrases, currentPhraseIndex, reset]);
+
+	useEffect(() => {
+		if (!typing && typedText === "") {
+			onTypingComplete();
+
+			// Reset the typing animation
+			setReset(false);
+
+			// Move to the next phrase
+			setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+		}
+	}, [typing, typedText, onTypingComplete, phrases, reset]);
+
 	return (
 		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-			Unlocking the Full Potential Of Daos with {text}
+			Unlocking the Full Potential Of Daos with {typedText}
 		</div>
 	);
 };
@@ -18,49 +73,11 @@ export default function Hero() {
 		"Machine Learning",
 		"Natural Language Processing",
 	];
-	const [phraseIndex, setPhraseIndex] = useState(0);
-	const [typedText, setTypedText] = useState("");
 
 	const handleTypingComplete = () => {
-		// Set a delay before starting the typing out animation
-		setTimeout(() => {
-			setTypedOut(true);
-		}, 1000);
+		// Handle any logic after the typing animation completes
+		console.log("Typing animation complete");
 	};
-
-	const [typedOut, setTypedOut] = useState(false);
-
-	useEffect(() => {
-		if (!typedOut) {
-			// Start typing in the current phrase
-			let index = 0;
-			const intervalId = setInterval(() => {
-				setTypedText((prevText) => {
-					const nextLetter = phrases[phraseIndex][index];
-					index += 1;
-					return prevText + (nextLetter !== undefined ? nextLetter : "");
-				});
-
-				if (index === phrases[phraseIndex].length) {
-					clearInterval(intervalId);
-					// Notify the parent component when typing in is complete
-					handleTypingComplete();
-				}
-			}, 100);
-		} else {
-			// Start typing out the current phrase
-			const intervalId = setInterval(() => {
-				setTypedText((prevText) => prevText.slice(0, -1));
-
-				// Notify when typing out is complete
-				if (typedText.length === 0) {
-					clearInterval(intervalId);
-					setTypedOut(false);
-					setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-				}
-			}, 100);
-		}
-	}, [typedOut, typedText, phrases, phraseIndex]);
 	return (
 		<div className="xl:flex xl:justify-evenly xl:items-center xl:mt-32">
 			<div className="flex flex-col items-center gap-7 mt-12 relative">
@@ -69,8 +86,7 @@ export default function Hero() {
 				<div className="Inter text-white text-3xl text-center font-extrabold xl:hidden">
 					Unlocking the Full Potential Of Daos with AI
 				</div>
-
-				<Typewriter text={typedText} onTypingComplete={handleTypingComplete} />
+				<Typewriter phrases={phrases} onTypingComplete={handleTypingComplete} />
 
 				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px]">
 					Empower DeFi Governance with AI-Powered Decisions
