@@ -18,6 +18,10 @@ module.exports = {
 					"linear-gradient(98deg, #936C1F 44.14%, rgba(144, 105, 27, 0.60) 62.54%)",
 				trainAIGradient:
 					"linear-gradient(93deg, #D69F31 32.86%, #926C1F 82.44%)",
+				contributorsGradient:
+					"linear-gradient(93deg, #FDD433 32.86%, #AD900C 82.44%)",
+				phoneHeadingGradient:
+					"linear-gradient(93deg, #F6C141 32.86%, #C7B895 82.44%)",
 			},
 			boxShadow: {
 				xl: " 0px 5px 0px 0px #191A23",
