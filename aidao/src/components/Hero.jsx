@@ -7,7 +7,6 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
 	const [typing, setTyping] = useState(true);
-
 	useEffect(() => {
 		const currentPhrase = phrases[currentPhraseIndex];
 		let index = 0;
@@ -23,16 +22,18 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 				clearInterval(interval);
 
 				setTimeout(() => {
-					setTyping(false);
+					// Erase the typed phrase
+					const eraseInterval = setInterval(() => {
+						setTypedText((prevText) => {
+							if (prevText.length === 0) {
+								clearInterval(eraseInterval);
 
-					setTimeout(() => {
-						// Reset the typing animation and move to the next phrase
-						setTypedText("");
-						setTyping(true);
-						setCurrentPhraseIndex(
-							(prevIndex) => (prevIndex + 1) % phrases.length
-						);
-					}, 1000);
+								// Set typing to true to trigger the next typing animation
+								setTyping(true);
+							}
+							return prevText.slice(0, -1);
+						});
+					}, 100);
 				}, 1000);
 			}
 		}, 100);
@@ -48,7 +49,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 
 	return (
 		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-			Unlocking the Full Potential Of Daos with {typedText}
+			{typedText}
 		</div>
 	);
 };
