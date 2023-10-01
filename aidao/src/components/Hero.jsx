@@ -3,27 +3,50 @@ import bgCircleLeft from "../assets/bgCircleLeft.png";
 import bgCircleRight from "../assets/bgCircleRight.png";
 import blurCircle from "../assets/blurCircle.svg";
 import robot from "../assets/robot.png";
-export default function Hero() {
+const Typewriter = ({ text }) => {
 	const [typedText, setTypedText] = useState("");
-	const targetText = "Artificial Intelligence";
 
 	useEffect(() => {
 		let index = 0;
 		const intervalId = setInterval(() => {
 			setTypedText((prevText) => {
-				const nextLetter = targetText[index];
+				const nextLetter = text[index];
 				index += 1;
 				return prevText + (nextLetter !== undefined ? nextLetter : "");
 			});
 
-			if (index === targetText.length) {
+			if (index === text.length) {
 				clearInterval(intervalId);
 			}
 		}, 100);
 
 		// Cleanup the interval on component unmount
 		return () => clearInterval(intervalId);
-	}, []);
+	}, [text]);
+
+	return (
+		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
+			Unlocking the Full Potential Of Daos with {typedText}
+		</div>
+	);
+};
+
+export default function Hero() {
+	const phrases = [
+		"Artificial Intelligence",
+		"Machine Learning",
+		"Natural Language Processing",
+	];
+	const [phraseIndex, setPhraseIndex] = useState(0);
+
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+		}, 4000); // Switch phrases every 5 seconds
+
+		// Cleanup the interval on component unmount
+		return () => clearInterval(intervalId);
+	}, [phrases]);
 	return (
 		<div className="xl:flex xl:justify-evenly xl:items-center xl:mt-32">
 			<div className="flex flex-col items-center gap-7 mt-12 relative">
@@ -32,9 +55,7 @@ export default function Hero() {
 				<div className="Inter text-white text-3xl text-center font-extrabold xl:hidden">
 					Unlocking the Full Potential Of Daos with AI
 				</div>
-				<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-					Unlocking the Full Potential Of Daos with {typedText}
-				</div>
+				<Typewriter text={phrases[phraseIndex]} />
 
 				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px]">
 					Empower DeFi Governance with AI-Powered Decisions
