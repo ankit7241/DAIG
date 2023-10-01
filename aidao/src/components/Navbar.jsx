@@ -14,25 +14,22 @@ export default function Navbar() {
 			</div>
 			<img src={navLogo} className="h-4 w-12 shrink-0 xl:hidden" />
 			<div className="hidden xl:inline-flex xl:items-start xl:gap-6">
-				<div className="Inter text-white text-2xl leading-6 font-bold">
+				<button className="Inter text-white text-2xl leading-6 font-bold hover:text-[#FFDF00] active:text-[#D4AF37] ">
 					Features
-				</div>
-				<div className="Inter text-white text-2xl leading-6 font-bold">
+				</button>
+				<button className="Inter text-white text-2xl leading-6 font-bold hover:text-[#FFDF00] active:text-[#D4AF37]">
 					Whitepaper
-				</div>
-				<div className="Inter text-white text-2xl leading-6 font-bold">
+				</button>
+				<button className="Inter text-white text-2xl leading-6 font-bold hover:text-[#FFDF00] active:text-[#D4AF37]">
 					Staking
-				</div>
-				<div className="Inter text-white text-2xl leading-6 font-bold">
+				</button>
+				<button className="Inter text-white text-2xl leading-6 font-bold hover:text-[#FFDF00] active:text-[#D4AF37]">
 					TG-GPT App
-				</div>
-				<div className="Inter text-white text-2xl leading-6 font-bold"></div>
-			</div>
-			<div className="hidden xl:inline-flex py-3 px-2 justify-center items-center gap-2 rounded-sm border-2 border-[#C2A502] bg-connectWalletGradient">
-				<button className="Inter text-white text-2xl leading-6 font-bold">
-					Connect Wallet
 				</button>
 			</div>
+			<button className="hidden xl:inline-flex py-3 px-2 justify-center items-center gap-2 rounded-sm border-2 border-[#C2A502]  bg-connectWalletGradient hover:bg-[#FFDF00] active:bg-[#D4AF37] Inter text-white text-2xl leading-6 font-bold hover:bg-connectHoverGradient active:bg-goldActiveGradient">
+				Connect Wallet
+			</button>
 		</div>
 	);
 }
