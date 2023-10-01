@@ -12,7 +12,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 		const currentPhrase = phrases[currentPhraseIndex];
 		let index = 0;
 
-		const typeInterval = setInterval(() => {
+		const interval = setInterval(() => {
 			setTypedText((prevText) => {
 				const nextLetter = currentPhrase[index];
 				index += 1;
@@ -20,33 +20,32 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 			});
 
 			if (index === currentPhrase.length) {
-				clearInterval(typeInterval);
+				clearInterval(interval);
 
-				const eraseInterval = setInterval(() => {
-					setTypedText((prevText) => {
-						const newText = prevText.slice(0, -1);
-						return newText;
-					});
+				setTimeout(() => {
+					// Erase the typed phrase
+					const eraseInterval = setInterval(() => {
+						setTypedText((prevText) => {
+							if (prevText.length === 0) {
+								clearInterval(eraseInterval);
 
-					if (typedText === "") {
-						clearInterval(eraseInterval);
+								// Set typing to true to trigger the next typing animation
+								setTyping(true);
 
-						setTimeout(() => {
-							// Reset the typing animation and move to the next phrase
-							setTyping(true);
-							setCurrentPhraseIndex(
-								(prevIndex) => (prevIndex + 1) % phrases.length
-							);
-						}, 1000);
-					}
-				}, 50);
+								// Move to the next phrase
+								setCurrentPhraseIndex(
+									(prevIndex) => (prevIndex + 1) % phrases.length
+								);
+							}
+							return prevText.slice(0, -1);
+						});
+					}, 100);
+				}, 1000);
 			}
 		}, 100);
 
-		return () => {
-			clearInterval(typeInterval);
-		};
-	}, [phrases, currentPhraseIndex, typedText]);
+		return () => clearInterval(interval);
+	}, [phrases, currentPhraseIndex]);
 
 	useEffect(() => {
 		if (!typing && typedText === "") {
