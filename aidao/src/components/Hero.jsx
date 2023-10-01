@@ -33,7 +33,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 								if (prevText.length === 0) {
 									clearInterval(eraseInterval);
 
-									// Set reset to trigger the typing animation reset
+									// Reset the typing animation
 									setReset(true);
 								}
 								return prevText.slice(0, -1);
@@ -53,9 +53,6 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 
 			// Move to the next phrase
 			setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-
-			// Reset the typing animation
-			setReset(false);
 		}
 	}, [typing, typedText, onTypingComplete, phrases, reset]);
 
