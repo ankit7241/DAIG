@@ -118,17 +118,17 @@ export default function Hero() {
 	const controls = useAnimation();
 	const buttonControls = useAnimation();
 	const [ref, inView] = useInView({
-		triggerOnce: true, // Trigger animation once
-		threshold: 0.1, // Trigger animation when at least 50% of the element is in view
+		triggerOnce: true,
+		threshold: 0.1,
 	});
 
 	useEffect(() => {
 		if (inView && firstRenderRef.current) {
 			firstRenderRef.current = false;
 			controls.start("visible");
-			console.log("Controls:", controls); // Log animation controls
+			console.log("Controls:", controls);
 			buttonControls.start("visible");
-			console.log("Button Controls:", buttonControls); // Log button animation controls
+			console.log("Button Controls:", buttonControls);
 		}
 	}, [controls, buttonControls, inView]);
 	const phrases = [
@@ -175,7 +175,6 @@ export default function Hero() {
 					className="inline-flex items-start gap-4 mt-12 xl:gap-24"
 					ref={ref}
 				>
-					{/* Sequence animation container for buttons */}
 					<div className="hover:scale-110">
 						<motion.button
 							className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105"
@@ -204,7 +203,6 @@ export default function Hero() {
 					</div>
 					<div className="flex justify-center items-center gap-3" ref={ref}>
 						<div className="flex items-between gap-5">
-							{/* Apply animations to ul and stagger li items */}
 							<motion.ul
 								className="flex flex-col items-center gap-5"
 								variants={container1}

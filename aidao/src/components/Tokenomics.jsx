@@ -36,8 +36,8 @@ export default function Tokenomics() {
 	const controls = useAnimation();
 
 	const [ref, inView] = useInView({
-		triggerOnce: true, // Trigger animation once
-		threshold: 0.1, // Trigger animation when at least 50% of the element is in view
+		triggerOnce: true,
+		threshold: 0.1,
 	});
 
 	useEffect(() => {
@@ -56,13 +56,9 @@ export default function Tokenomics() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
-
 							<div className="Inter text-white text-[6.107vw] text-center font-semibold lg:text-[42px] hover:text-[#FFDF00] active:text-[#D4AF37] hover:scale-125">
-								{/* Text for each step */}
 								{index === 0 && "TOKENOMICS"}
 							</div>
 						</motion.li>
@@ -77,13 +73,10 @@ export default function Tokenomics() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex flex-col items-center">
 								<div className="Inter text-white text-[3.562vw] text-center font-normal w-4/5 lg:text-2xl hover:scale-105">
-									{/* Text for each step */}
 									{index === 0 &&
 										"Art is a Therapy for artists which is why TG-GPT Bot provides freedom for creators to generate AI content and be able mint art as NFT into their wallet right away."}
 								</div>

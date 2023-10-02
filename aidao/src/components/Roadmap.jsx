@@ -51,8 +51,8 @@ export default function Roadmap() {
 	const controls = useAnimation();
 
 	const [ref, inView] = useInView({
-		triggerOnce: true, // Trigger animation once
-		threshold: 0.1, // Trigger animation when at least 50% of the element is in view
+		triggerOnce: true,
+		threshold: 0.1,
 	});
 
 	useEffect(() => {
@@ -67,8 +67,8 @@ export default function Roadmap() {
 
 			setTimeout(() => {
 				setIsVisible(true);
-			}, 50); // Adjust the pause time based on your needs
-		}, 4000); // Adjust the total animation time based on your needs
+			}, 50); // Adjusting the pause time
+		}, 4000); // Adjusting the total animation time
 
 		return () => clearInterval(intervalId);
 	}, []);
@@ -84,13 +84,9 @@ export default function Roadmap() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
-
 							<div className="Inter text-[3.562vw] text-start font-bold bg-trainAIGradient text-transparent bg-clip-text lg:text-2xl hover:scale-105">
-								{/* Text for each step */}
 								{index === 0 && "END TO END ENCRYPTED"}
 							</div>
 						</motion.li>
@@ -105,13 +101,9 @@ export default function Roadmap() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
-
 							<div className="Inter text-white text-[6.107vw] text-start font-extrabold lg:text-[42px] hover:scale-105">
-								{/* Text for each step */}
 								{index === 0 && "ROAD MAP"}
 							</div>
 						</motion.li>
@@ -126,13 +118,9 @@ export default function Roadmap() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
-
 							<div className="Inter text-white text-[4.071vw] text-start font-normal lg:text-2xl lg:w-2/5 hover:scale-105">
-								{/* Text for each step */}
 								{index === 0 &&
 									"Introducing the Secure Message feature allowing users of Web 3.0 to send secure, decentralized, and encrypted messages to anyone anonymously in TG community."}
 							</div>

@@ -58,8 +58,8 @@ export default function TrainAI() {
 	const controls = useAnimation();
 	const buttonControls = useAnimation();
 	const [ref, inView] = useInView({
-		triggerOnce: true, // Trigger animation once
-		threshold: 0.1, // Trigger animation when at least 50% of the element is in view
+		triggerOnce: true,
+		threshold: 0.1,
 	});
 
 	useEffect(() => {
@@ -79,13 +79,10 @@ export default function TrainAI() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex">
 								<div className="Inter text-[3.562vw] text-center font-bold bg-trainAIGradient text-transparent bg-clip-text lg:text-2xl hover:scale-105">
-									{/* Text for each step */}
 									{index === 0 && "EARN PASSIVE INCOME"}
 								</div>
 							</div>
@@ -100,13 +97,10 @@ export default function TrainAI() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex">
 								<div className="Inter text-white text-[6.107vw] text-center font-extrabold lg:text-[42px] hover:scale-105">
-									{/* Text for each step */}
 									{index === 0 && "Train GURU AI to Earn"}
 								</div>
 							</div>
@@ -121,13 +115,10 @@ export default function TrainAI() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex flex-col items-center justify-center">
 								<div className="Inter text-white text-[4.071vw] text-center font-normal px-2 lg:text-2xl xl:w-2/5 hover:scale-105">
-									{/* Text for each step */}
 									{index === 0 &&
 										"Join hands with TG-GPT Bot to train it's AI model on various topics of Web 3.0 and start earning passive income in $GPTG."}
 								</div>
@@ -137,7 +128,6 @@ export default function TrainAI() {
 				</motion.ul>
 
 				<div className="inline-flex items-start gap-4 mt-12 xl:gap-24 lg:hidden">
-					{/* Sequence animation container for buttons */}
 					<div className="hover:scale-110">
 						<motion.button
 							className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105"
@@ -168,14 +158,6 @@ export default function TrainAI() {
 				<img src={ellipse} className="absolute" />
 			</div>
 			<div className="flex items-center justify-center">
-				{/* <div className="hidden lg:inline-flex lg:items-start lg:gap-24">
-					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105">
-						
-					</button>
-					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105 ">
-						Whitepaper
-					</button>
-				</div> */}
 				<div
 					className="hidden lg:inline-flex lg:items-start lg:gap-24"
 					ref={ref}

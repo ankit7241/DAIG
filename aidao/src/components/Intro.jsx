@@ -59,8 +59,8 @@ export default function Intro() {
 	const controls = useAnimation();
 
 	const [ref, inView] = useInView({
-		triggerOnce: true, // Trigger animation once
-		threshold: 0.1, // Trigger animation when at least 50% of the element is in view
+		triggerOnce: true,
+		threshold: 0.1,
 	});
 
 	useEffect(() => {
@@ -79,13 +79,10 @@ export default function Intro() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex">
 								<div className="Inter text-white text-[3.562vw] text-center font-bold lg:text-2xl hover:text-[#FFDF00] active:text-[#D4AF37] hover:scale-110">
-									{/* Text for each step */}
 									{index === 0 && "THE FUTURE OF AI"}
 								</div>
 							</div>
@@ -101,13 +98,10 @@ export default function Intro() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex">
 								<div className="Inter text-[6.107vw] text-center font-extrabold bg-introTextGradient text-transparent bg-clip-text lg:text-start lg:text-[42px] hover:scale-105">
-									{/* Text for each step */}
 									{index === 0 && "Elevate Defi Governance"}
 								</div>
 							</div>
@@ -115,11 +109,6 @@ export default function Intro() {
 					))}
 				</motion.ul>
 
-				{/* <div className="Inter text-white text-[6.107vw] text-center font-normal lg:text-[42px]">
-					Meet DAIG!
-				</div> */}
-
-				{/* Sequence animation container */}
 				<motion.ul
 					className="container flex flex-col items-center lg:items-start"
 					ref={ref}
@@ -128,13 +117,10 @@ export default function Intro() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex">
 								<div className="Inter text-white text-[6.107vw] text-center font-normal lg:text-[42px] hover:scale-105">
-									{/* Text for each step */}
 									{index === 0 && "Meet DAIG!"}
 								</div>
 							</div>
@@ -150,13 +136,10 @@ export default function Intro() {
 					animate={controls}
 					transition={{ staggerChildren: 0.2 }}
 				>
-					{/* Each item in the sequence */}
 					{[0].map((index) => (
 						<motion.li key={index} className="item" variants={item}>
-							{/* Text and tick image for each step */}
 							<div className="flex">
 								<div className="Inter text-white text-[3.562vw] text-center font-normal lg:text-2xl lg:text-start hover:scale-105">
-									{/* Text for each step */}
 									{index === 0 &&
 										"Daig's AI evaluates proposals for feasibility, alignment with goals, and risks, empowering informed voting decisions"}
 								</div>
