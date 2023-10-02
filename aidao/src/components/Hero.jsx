@@ -51,8 +51,10 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	}, [typing, typedText, onTypingComplete]);
 
 	return (
-		<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
-			{typedText}
+		<div className="flex">
+			<div className="Inter text-[#FFDF00] text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px] z-10">
+				{typedText}
+			</div>
 		</div>
 	);
 };
@@ -74,8 +76,8 @@ export default function Hero() {
 				<div className="Inter text-white text-3xl text-center font-extrabold xl:hidden">
 					Unlocking the Full Potential Of Daos with AI
 				</div>
-				<div>
-					<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px]">
+				<div className="flex flex-col">
+					<div className="Inter text-white text-5xl text-center font-extrabold hidden xl:flex xl:text-start xl:w-[600px] z-10">
 						Unlocking the Full Potential Of Daos with
 					</div>
 					<Typewriter
@@ -84,7 +86,7 @@ export default function Hero() {
 					/>
 				</div>
 
-				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px]">
+				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px] z-10">
 					Empower DeFi Governance with AI-Powered Decisions
 				</div>
 				<div className="flex justify-between w-full absolute top-28 xl:hidden -z-10">

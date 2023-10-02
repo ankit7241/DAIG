@@ -1,4 +1,10 @@
+import React, { useState } from "react";
 import team from "../assets/team.png";
+import teamLeft from "../assets/teamLeft.png";
+import teamRight from "../assets/teamRight.png";
+import team1 from "../assets/team1.png";
+import team2 from "../assets/team2.png";
+import team3 from "../assets/team3.png";
 export default function Team() {
 	return (
 		<div className="flex flex-col pt-11 pb-32">
@@ -12,11 +18,9 @@ export default function Team() {
 			</div>
 			<div className="flex flex-col items-center w-full">
 				<img src={team} className="lg:w-2/5" />
+
+				{/* <img src={team1} className="absolute z-10 w-[37.148vw] lg:w-2/5" /> */}
 				{/* <img
-					src={teamFront}
-					className="relative top-12 z-10 xl:w-[380px] xl:relative"
-				/>
-				<img
 					src={teamLeft}
 					className=" relative bottom-[350px] right-3 xl:w-[400px] xl:relative xl:bottom-[490px] xl:right-8"
 				/>
@@ -31,3 +35,41 @@ export default function Team() {
 		</div>
 	);
 }
+// import React, { useState } from "react";
+
+// const Team = () => {
+// 	const [cards, setCards] = useState([1, 2, 3]);
+
+// 	const handleArrowClick = () => {
+// 		setCards((prevCards) => {
+// 			const updatedCards = [...prevCards.slice(1), prevCards[0]];
+// 			return updatedCards;
+// 		});
+// 	};
+
+// 	return (
+// 		<div className="flex items-center justify-center h-screen">
+// 			<div className="relative w-64">
+// 				{cards.map((card, index) => (
+// 					<div
+// 						key={index}
+// 						className={`absolute w-full h-40 bg-blue-500 rounded-md transform transition-transform duration-500 ${
+// 							index === 0 ? "z-10 translate-x-0" : "translate-x-8"
+// 						}`}
+// 					>
+// 						{/* Your card content goes here */}
+// 						<p className="text-white text-center mt-6">{card}</p>
+// 					</div>
+// 				))}
+// 			</div>
+// 			<button
+// 				className="ml-4 px-3 py-1 bg-gray-700 text-white rounded focus:outline-none"
+// 				onClick={handleArrowClick}
+// 			>
+// 				Next
+// 			</button>
+// 		</div>
+// 	);
+// };
+
+// export default Team;
