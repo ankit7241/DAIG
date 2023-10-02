@@ -1,8 +1,51 @@
 import React, { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import bgCircleLeft from "../assets/bgCircleLeft.png";
 import bgCircleRight from "../assets/bgCircleRight.png";
 import blurCircle from "../assets/blurCircle.svg";
 import robot from "../assets/robot.png";
+const container1 = {
+	hidden: { opacity: 1, scale: 0 },
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: {
+			delayChildren: 0.3,
+			staggerChildren: 0.6,
+		},
+	},
+};
+const container2 = {
+	hidden: { opacity: 1, scale: 0 },
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: {
+			delayChildren: 0.6,
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+const item = {
+	hidden: { y: 20, opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1,
+	},
+};
+
+const button = {
+	hidden: { opacity: 0, scale: 0 },
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: {
+			delay: 0.5, // Delay the button animation
+		},
+	},
+};
 const Typewriter = ({ phrases, onTypingComplete }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
@@ -59,6 +102,21 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	);
 };
 export default function Hero() {
+	const controls = useAnimation();
+	const buttonControls = useAnimation();
+	const [ref, inView] = useInView({
+		triggerOnce: true, // Trigger animation once
+		threshold: 0.1, // Trigger animation when at least 50% of the element is in view
+	});
+
+	useEffect(() => {
+		if (inView) {
+			controls.start("visible");
+			console.log("Controls:", controls); // Log animation controls
+			buttonControls.start("visible");
+			console.log("Button Controls:", buttonControls); // Log button animation controls
+		}
+	}, [controls, buttonControls, inView]);
 	const phrases = [
 		"Artificial Intelligence",
 		"Machine Learning",
@@ -71,7 +129,7 @@ export default function Hero() {
 	return (
 		<div className="xl:flex xl:justify-evenly xl:items-center xl:mt-32">
 			<div className="flex flex-col items-center gap-7 mt-12 relative xl:items-start">
-				<div className="border border-white border-r-2 w-[76.336vw] xl:w-[600px]"></div>
+				<div className="border border-white border-r-2 w-[76.336vw] md:w-[500px] xl:w-[600px]"></div>
 
 				<div className="flex flex-col ">
 					<div className="Inter text-white text-2xl xl:text-5xl text-center font-extrabold xl:flex xl:text-start xl:w-[600px] z-10">
@@ -97,20 +155,87 @@ export default function Hero() {
 				</div>
 				<img src={robot} className="w-2/3 xl:hidden" />
 
-				<div className="inline-flex items-start gap-4 mt-12 xl:gap-24">
+				{/* <div className="inline-flex items-start gap-4 mt-12 xl:gap-24">
 					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105">
 						Try DAIG
 					</button>
 					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px] hover:bg-[#202020] active:bg-[#181818] hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105">
 						Whitepaper
 					</button>
+				</div> */}
+				<div
+					className="inline-flex items-start gap-4 mt-12 xl:gap-24"
+					ref={ref}
+				>
+					{/* Sequence animation container for buttons */}
+					<div className="hover:scale-110">
+						<motion.button
+							className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105"
+							variants={button}
+							initial="hidden"
+							animate={buttonControls}
+						>
+							Try DAIG
+						</motion.button>
+					</div>
+					<div className="hover:scale-110">
+						<motion.button
+							className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px] hover:bg-[#202020] active:bg-[#181818] hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105 "
+							variants={button}
+							initial="hidden"
+							animate={buttonControls}
+						>
+							Whitepaper
+						</motion.button>
+					</div>
 				</div>
 
 				<div className="flex flex-col gap-8 mt-24">
 					<div className="Inter text-white text-[4.580vw] text-center font-bold xl:text-2xl xl:text-start">
 						OVERVIEW
 					</div>
-					<div className="flex justify-center items-center gap-3">
+					<div className="flex justify-center items-center gap-3" ref={ref}>
+						<div className="flex items-between gap-5">
+							{/* Apply animations to ul and stagger li items */}
+							<motion.ul
+								className="flex flex-col items-center gap-5"
+								variants={container1}
+								initial="hidden"
+								animate={controls}
+								transition={{ staggerChildren: 0.2 }}
+							>
+								{[0, 1].map((index) => (
+									<motion.li key={index} variants={item}>
+										<div className="flex p-[6.43px] justify-center items-center bg-overviewBg hover:scale-110">
+											<button className="DM text-white text-xs text-center font-bold xl:text-lg hover:text-[#FFDF00] active:text-[#D4AF37]">
+												{index === 0 && "AI-DRIVEN PROPOSAL ANALYSIS"}
+												{index === 1 && "TOKEN-BASED VOTING"}
+											</button>
+										</div>
+									</motion.li>
+								))}
+							</motion.ul>
+							<motion.ul
+								className="flex flex-col items-center gap-5"
+								variants={container2}
+								initial="hidden"
+								animate={controls}
+								transition={{ staggerChildren: 0.2 }}
+							>
+								{[0, 1].map((index) => (
+									<motion.li key={index} variants={item}>
+										<div className="flex p-[6.43px] justify-center items-center bg-overviewBg hover:scale-110">
+											<button className="DM text-white text-xs text-center font-bold xl:text-lg hover:text-[#FFDF00] active:text-[#D4AF37]">
+												{index === 0 && "PROPOSAL RANKING"}
+												{index === 1 && "VOTING RECOMMENDATIONS"}
+											</button>
+										</div>
+									</motion.li>
+								))}
+							</motion.ul>
+						</div>
+					</div>
+					{/* <div className="flex justify-center items-center gap-3">
 						<div className="flex flex-col items-between gap-5">
 							<div className="flex p-[6.43px] justify-center items-center bg-overviewBg">
 								<button className="DM text-white text-xs text-center font-bold xl:text-lg hover:text-[#FFDF00] active:text-[#D4AF37]">
@@ -136,7 +261,7 @@ export default function Hero() {
 								</button>
 							</div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 			<img src={robot} className="hidden xl:flex w-[635px] h-[1024px]" />

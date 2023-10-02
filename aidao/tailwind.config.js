@@ -24,8 +24,8 @@ module.exports = {
 				phoneHeadingGradient:
 					"linear-gradient(93deg, #F6C141 32.86%, #C7B895 82.44%)",
 				connectHoverGradient:
-					"linear-gradient(116deg, #BD8928 13.39%, #5D4214 66.86%);",
-				goldHoverGradient: "linear-gradient(116deg, #BD8928 100%, #5D4214 0%);",
+					"linear-gradient(116deg, #BD8928 13.39%, #5D4214 66.86%)",
+				goldHoverGradient: "linear-gradient(116deg, #BD8928 100%, #5D4214 0%)",
 				goldActiveGradient:
 					"linear-gradient(116deg, #BD8928 1.39%, #5D4214 66.86%);",
 			},

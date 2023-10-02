@@ -34,7 +34,7 @@ export default function Tokenomics() {
 					Contract Address
 				</div>
 				<div className="Inter text-white text-[1.945vw] text-center font-bold lg:text-3xl">
-					0x994A258c7Dec633b5b15376f850D5Ea701179E79
+					0x2170ed0880ac9a755fd29b2688956bd959f933f8
 				</div>
 				<div className="flex w-full justify-evenly items-center">
 					<div className="flex flex-col gap-1">
