@@ -46,25 +46,21 @@ const button = {
 		},
 	},
 };
-const Typewriter = ({ phrases, onTypingComplete }) => {
+const Typewriter = ({ phrases, onTypingComplete, initialRender }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
 	const [typing, setTyping] = useState(true);
-	const firstRenderRef = useRef(true);
 
 	useEffect(() => {
-		if (firstRenderRef.current) {
-			firstRenderRef.current = false;
-			return; // Skip animation on the first render
-		}
-
 		const currentPhrase = phrases[currentPhraseIndex];
 		let index = 0;
 
 		const interval = setInterval(() => {
 			setTypedText((prevText) => {
 				const nextLetter = currentPhrase[index];
-				index += 1;
+				if (prevText.charAt(prevText.length - 1) === nextLetter) {
+					index += 1;
+				}
 				return prevText + (nextLetter !== undefined ? nextLetter : "");
 			});
 
@@ -89,9 +85,12 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 				}, 1000);
 			}
 		}, 100);
+		if (initialRender) {
+			setTypedText(phrases[currentPhraseIndex]);
+		}
 
 		return () => clearInterval(interval);
-	}, [phrases, currentPhraseIndex]);
+	}, [phrases, currentPhraseIndex, initialRender]);
 
 	useEffect(() => {
 		if (!typing && typedText === "") {
@@ -108,7 +107,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	);
 };
 export default function Hero() {
-	const firstRenderRef = useRef(true);
+	const [initialRender, setInitialRender] = useState(true);
 	const controls = useAnimation();
 	const buttonControls = useAnimation();
 	const [ref, inView] = useInView({
@@ -117,14 +116,13 @@ export default function Hero() {
 	});
 
 	useEffect(() => {
-		if (inView && firstRenderRef.current) {
-			firstRenderRef.current = false;
+		if (inView && !initialRender) {
 			controls.start("visible");
 			console.log("Controls:", controls); // Log animation controls
 			buttonControls.start("visible");
 			console.log("Button Controls:", buttonControls); // Log button animation controls
 		}
-	}, [controls, buttonControls, inView]);
+	}, [controls, buttonControls, inView, initialRender]);
 	const phrases = [
 		"Artificial Intelligence",
 		"Machine Learning",
@@ -146,6 +144,7 @@ export default function Hero() {
 					<Typewriter
 						phrases={phrases}
 						onTypingComplete={handleTypingComplete}
+						initialRender={initialRender}
 					/>
 				</div>
 
