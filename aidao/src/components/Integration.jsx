@@ -37,16 +37,12 @@ export default function Integration() {
 					</div>
 				</div>
 				<div className="inline-flex items-start gap-4 mt-12 xl:gap-24">
-					<div className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px]">
-						<button className="Inter text-white text-[3vw] text-center font-bold lg:text-2xl">
-							Try DAIG
-						</button>
-					</div>
-					<div className="flex p-2 justify-center items-center gap-1 rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px]">
-						<button className="Inter text-white text-[3vw] text-center font-bold lg:text-2xl">
-							Whitepaper
-						</button>
-					</div>
+					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105">
+						Try DAIG
+					</button>
+					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px] hover:bg-[#202020] active:bg-[#181818] hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105 ">
+						Whitepaper
+					</button>
 				</div>
 			</div>
 		</div>

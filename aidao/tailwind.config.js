@@ -6,6 +6,7 @@ module.exports = {
 			colors: {
 				white: "#FFF",
 				overviewBg: "rgba(255, 255, 255, 0.05)",
+				roadmapFont: "rgba(255, 255, 255, 0.78)",
 			},
 
 			backgroundImage: {

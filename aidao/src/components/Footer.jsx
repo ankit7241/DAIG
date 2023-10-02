@@ -28,7 +28,7 @@ export default function Footer() {
 								type="text"
 							></input>
 							<div className="flex justify-end">
-								<button className="bg-[#FAFAFA] border-[#FAFAFA] rounded-lg border-[1px] py-2 px-3 text-center Roboto text-2xl font-medium text-[#3A3A3A] xl:text-2xl">
+								<button className="bg-[#FAFAFA] border-[#FAFAFA] rounded-lg border-[1px] py-2 px-3 text-center Roboto text-2xl font-medium text-[#3A3A3A] xl:text-2xl hover:bg-[#E8E8E8] active:bg-[#D8D8D8] hover:scale-105">
 									Sign Up
 								</button>
 							</div>
@@ -90,10 +90,10 @@ export default function Footer() {
 					before !🤖👨‍💻
 				</div>
 				<div className="flex justify-center gap-3 xl:gap-20">
-					<img src={youtubeIcon} alt="" />
-					<img src={discordIcon} alt="" />
-					<img src={instagramIcon} alt="" />
-					<img src={telegramIcon} alt="" />
+					<img src={youtubeIcon} alt="" className="hover:scale-110" />
+					<img src={discordIcon} alt="" className="hover:scale-110" />
+					<img src={instagramIcon} alt="" className="hover:scale-110" />
+					<img src={telegramIcon} alt="" className="hover:scale-110" />
 				</div>
 				<div className="text-[#808080] Roboto text-[3.817vw] font-medium w-3/5 md:text-2xl md:text-center">
 					Copyrights © 2023. TG-GPT Bots OÜ.All rights reserved.
