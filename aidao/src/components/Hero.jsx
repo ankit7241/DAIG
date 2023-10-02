@@ -50,8 +50,14 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
 	const [typing, setTyping] = useState(true);
+	const [firstRender, setFirstRender] = useState(true);
 
 	useEffect(() => {
+		if (firstRender) {
+			setFirstRender(false);
+			return;
+		}
+
 		const currentPhrase = phrases[currentPhraseIndex];
 		let index = 0;
 
@@ -85,7 +91,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 		}, 100);
 
 		return () => clearInterval(interval);
-	}, [phrases, currentPhraseIndex]);
+	}, [firstRender, phrases, currentPhraseIndex]);
 
 	useEffect(() => {
 		if (!typing && typedText === "") {
@@ -102,6 +108,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	);
 };
 export default function Hero() {
+	const [firstRender, setFirstRender] = useState(true);
 	const controls = useAnimation();
 	const buttonControls = useAnimation();
 	const [ref, inView] = useInView({
@@ -110,13 +117,14 @@ export default function Hero() {
 	});
 
 	useEffect(() => {
-		if (inView) {
+		if (inView && firstRender) {
+			setFirstRender(false);
 			controls.start("visible");
 			console.log("Controls:", controls); // Log animation controls
 			buttonControls.start("visible");
 			console.log("Button Controls:", buttonControls); // Log button animation controls
 		}
-	}, [controls, buttonControls, inView]);
+	}, [controls, buttonControls, inView, firstRender]);
 	const phrases = [
 		"Artificial Intelligence",
 		"Machine Learning",
