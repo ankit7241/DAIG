@@ -51,8 +51,8 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	}, [typing, typedText, onTypingComplete]);
 
 	return (
-		<div className="flex">
-			<div className="Inter text-[#FFDF00] text-2xl text-center font-extrabold xl:text-5xl xl:flex xl:text-start z-10">
+		<div className="flex justify-center items-center">
+			<div className="Inter text-[#FFDF00] text-2xl text-center font-extrabold xl:text-5xl xl:flex xl:text-start xl:w-[700px] z-10">
 				{typedText}
 			</div>
 		</div>
@@ -70,12 +70,12 @@ export default function Hero() {
 	};
 	return (
 		<div className="xl:flex xl:justify-evenly xl:items-center xl:mt-32">
-			<div className="flex flex-col items-center gap-7 mt-12 relative">
+			<div className="flex flex-col items-center gap-7 mt-12 relative xl:items-start">
 				<div className="border border-white border-r-2 w-[76.336vw] xl:w-[600px]"></div>
 
-				<div className="flex flex-col">
-					<div className="Inter text-white text-3xl xl:text-5xl text-center font-extrabold xl:flex xl:text-start xl:w-[600px] z-10">
-						Unlocking the Full Potential Of Daos with
+				<div className="flex flex-col ">
+					<div className="Inter text-white text-2xl xl:text-5xl text-center font-extrabold xl:flex xl:text-start xl:w-[600px] z-10">
+						Unlocking the Full Potential Of DAOs with
 					</div>
 					<Typewriter
 						phrases={phrases}
