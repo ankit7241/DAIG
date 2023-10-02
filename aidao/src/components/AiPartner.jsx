@@ -41,7 +41,10 @@ export default function AiPartner() {
 	return (
 		<div className="flex flex-col items-center justify-center pt-5 mb-24 gap-20 lg:flex-row">
 			<div className="flex flex-col items-center justify-center lg:w-1/2 lg:items-start lg:ml-14">
-				<img src={robot} className="w-20 h-32 lg:h-80 lg:w-52" />
+				<img
+					src={robot}
+					className="w-[20.356vw] h-[32.570vw] lg:h-80 lg:w-52 lg:ml-20"
+				/>
 
 				<div className="flex flex-col items-center justify-center gap-5 lg:items-start">
 					<div className="Inter text-[3.562vw] text-center font-bold bg-trainAIGradient text-transparent bg-clip-text lg:text-2xl">
@@ -58,7 +61,7 @@ export default function AiPartner() {
 				</div>
 			</div>
 			<div
-				className="flex gap-8 flex-wrap items-center justify-center lg:w-1/2 lg:justify-normal"
+				className="flex gap-8 flex-wrap items-center justify-center lg:w-1/2 lg:justify-normal lg:mr-20"
 				ref={ref}
 			>
 				{/* Sequence animation container */}

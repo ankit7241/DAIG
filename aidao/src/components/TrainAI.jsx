@@ -182,23 +182,27 @@ export default function TrainAI() {
 					className="hidden lg:inline-flex lg:items-start lg:gap-24"
 					ref={ref}
 				>
-					{/* Sequence animation container for buttons */}
-					<motion.button
-						className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105"
-						variants={button}
-						initial="hidden"
-						animate={buttonControls}
-					>
-						Try TG-GPT Bot
-					</motion.button>
-					<motion.button
-						className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px] hover:bg-[#202020] active:bg-[#181818] hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105 "
-						variants={button}
-						initial="hidden"
-						animate={buttonControls}
-					>
-						Whitepaper
-					</motion.button>
+					<div className="hover:scale-110">
+						{/* Sequence animation container for buttons */}
+						<motion.button
+							className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105"
+							variants={button}
+							initial="hidden"
+							animate={buttonControls}
+						>
+							Try TG-GPT Bot
+						</motion.button>
+					</div>
+					<div className="hover:scale-110">
+						<motion.button
+							className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px] hover:bg-[#202020] active:bg-[#181818] hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105 "
+							variants={button}
+							initial="hidden"
+							animate={buttonControls}
+						>
+							Whitepaper
+						</motion.button>
+					</div>
 				</div>
 			</div>
 		</div>
