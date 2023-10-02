@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import bgCircleLeft from "../assets/bgCircleLeft.png";
@@ -50,12 +50,12 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 	const [typedText, setTypedText] = useState("");
 	const [typing, setTyping] = useState(true);
-	const [firstRender, setFirstRender] = useState(true);
+	const firstRenderRef = useRef(true);
 
 	useEffect(() => {
-		if (firstRender) {
-			setFirstRender(false);
-			return;
+		if (firstRenderRef.current) {
+			firstRenderRef.current = false;
+			return; // Skip animation on the first render
 		}
 
 		const currentPhrase = phrases[currentPhraseIndex];
@@ -91,7 +91,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 		}, 100);
 
 		return () => clearInterval(interval);
-	}, [firstRender, phrases, currentPhraseIndex]);
+	}, [phrases, currentPhraseIndex]);
 
 	useEffect(() => {
 		if (!typing && typedText === "") {
@@ -108,7 +108,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 	);
 };
 export default function Hero() {
-	const [firstRender, setFirstRender] = useState(true);
+	const firstRenderRef = useRef(true);
 	const controls = useAnimation();
 	const buttonControls = useAnimation();
 	const [ref, inView] = useInView({
@@ -117,14 +117,14 @@ export default function Hero() {
 	});
 
 	useEffect(() => {
-		if (inView && firstRender) {
-			setFirstRender(false);
+		if (inView && firstRenderRef.current) {
+			firstRenderRef.current = false;
 			controls.start("visible");
 			console.log("Controls:", controls); // Log animation controls
 			buttonControls.start("visible");
 			console.log("Button Controls:", buttonControls); // Log button animation controls
 		}
-	}, [controls, buttonControls, inView, firstRender]);
+	}, [controls, buttonControls, inView]);
 	const phrases = [
 		"Artificial Intelligence",
 		"Machine Learning",
