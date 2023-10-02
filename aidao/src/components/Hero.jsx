@@ -65,7 +65,13 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 			setTypedText((prevText) => {
 				const nextLetter = currentPhrase[index];
 				index += 1;
-				return prevText + (nextLetter !== undefined ? nextLetter : "");
+
+				// Check if the current letter is 'A' and it's the first occurrence in the phrase
+				const shouldDisplay = !(nextLetter === "A" && prevText.includes("A"));
+
+				return shouldDisplay
+					? prevText + (nextLetter !== undefined ? nextLetter : "")
+					: prevText;
 			});
 
 			if (index === currentPhrase.length) {
