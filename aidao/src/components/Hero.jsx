@@ -149,10 +149,12 @@ export default function Hero() {
 					<div className="Inter text-white text-2xl xl:text-5xl text-center font-extrabold xl:flex xl:text-start xl:w-[600px] z-10 hover:scale-105">
 						Unlocking the Full Potential Of DAOs with
 					</div>
-					<Typewriter
-						phrases={phrases}
-						onTypingComplete={handleTypingComplete}
-					/>
+					<div className="h-[3.776vw]">
+						<Typewriter
+							phrases={phrases}
+							onTypingComplete={handleTypingComplete}
+						/>
+					</div>
 				</div>
 
 				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px] z-10 hover:scale-105">
@@ -169,14 +171,6 @@ export default function Hero() {
 				</div>
 				<img src={robot} className="w-2/3 xl:hidden hover:scale-105" />
 
-				{/* <div className="inline-flex items-start gap-4 mt-12 xl:gap-24">
-					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105">
-						Try DAIG
-					</button>
-					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#0C070F] bg-[#29252C] xl:p-6 xl:rounded-[2px] hover:bg-[#202020] active:bg-[#181818] hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105">
-						Whitepaper
-					</button>
-				</div> */}
 				<div
 					className="inline-flex items-start gap-4 mt-12 xl:gap-24"
 					ref={ref}
@@ -249,33 +243,6 @@ export default function Hero() {
 							</motion.ul>
 						</div>
 					</div>
-					{/* <div className="flex justify-center items-center gap-3">
-						<div className="flex flex-col items-between gap-5">
-							<div className="flex p-[6.43px] justify-center items-center bg-overviewBg">
-								<button className="DM text-white text-xs text-center font-bold xl:text-lg hover:text-[#FFDF00] active:text-[#D4AF37]">
-									AI-DRIVEN PROPOSAL ANALYSIS
-								</button>
-							</div>
-							<div className="flex p-[6.43px] justify-center items-center bg-overviewBg">
-								<button className="DM text-white text-xs text-center font-bold xl:text-lg hover:text-[#FFDF00] active:text-[#D4AF37]">
-									TOKEN-BASED VOTING
-								</button>
-							</div>
-						</div>
-						<div className="flex flex-col items-center gap-5">
-							<div className="flex p-[6.43px] justify-center items-center bg-overviewBg">
-								<button className="DM text-white text-xs text-center font-bold xl:text-lg hover:text-[#FFDF00] active:text-[#D4AF37]">
-									PROPOSAL RANKING
-								</button>
-							</div>
-
-							<div className="flex p-[6.43px] justify-center items-center bg-overviewBg">
-								<button className="DM text-white text-xs text-center font-bold xl:text-lg hover:text-[#FFDF00] active:text-[#D4AF37]">
-									VOTING RECOMMENDATIONS
-								</button>
-							</div>
-						</div>
-					</div> */}
 				</div>
 			</div>
 			<img
