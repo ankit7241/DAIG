@@ -155,10 +155,10 @@ export default function Team() {
 	return (
 		<div className="flex flex-col pt-11 pb-32">
 			<div className="flex flex-col items-center gap-7 lg:items-start lg:pl-20">
-				<div className="Inter text-[3.562vw] text-start font-bold bg-contributorsGradient text-transparent bg-clip-text lg:text-2xl">
+				<div className="Inter text-[3.562vw] text-start font-bold bg-contributorsGradient text-transparent bg-clip-text lg:text-2xl hover:scale-105">
 					Contributors
 				</div>
-				<div className="Inter text-white text-[6.107vw] text-start font-extrabold lg:text-[42px] mb-7">
+				<div className="Inter text-white text-[6.107vw] text-start font-extrabold lg:text-[42px] mb-7 hover:scale-105">
 					Our Team
 				</div>
 			</div>

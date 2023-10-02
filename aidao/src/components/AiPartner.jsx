@@ -103,7 +103,7 @@ export default function AiPartner() {
 								{index === 0 && (
 									<img
 										src={robot}
-										className="w-[20.356vw] h-[32.570vw] lg:h-80 lg:w-52 lg:ml-20 "
+										className="w-[20.356vw] h-[32.570vw] lg:h-80 lg:w-52 lg:ml-20 hover:scale-110"
 									/>
 								)}
 							</div>
@@ -125,7 +125,7 @@ export default function AiPartner() {
 							<motion.li key={index} className="item" variants={item}>
 								{/* Text and tick image for each step */}
 								<div className="flex">
-									<div className="Inter text-[3.562vw] text-center font-bold bg-trainAIGradient text-transparent bg-clip-text lg:text-2xl">
+									<div className="Inter text-[3.562vw] text-center font-bold bg-trainAIGradient text-transparent bg-clip-text lg:text-2xl hover:scale-105">
 										{/* Text for each step */}
 										{index === 0 && "Streamline Decision Making"}
 									</div>
@@ -147,7 +147,7 @@ export default function AiPartner() {
 							<motion.li key={index} className="item" variants={item}>
 								{/* Text and tick image for each step */}
 								<div className="flex">
-									<div className="Inter text-white text-[6.107vw] text-center font-extrabold lg:text-[42px] lg:w-[413px] lg:text-start">
+									<div className="Inter text-white text-[6.107vw] text-center font-extrabold lg:text-[42px] lg:w-[413px] lg:text-start hover:scale-105">
 										{/* Text for each step */}
 										{index === 0 && "Your AI Governance Partner"}
 									</div>
@@ -169,7 +169,7 @@ export default function AiPartner() {
 							<motion.li key={index} className="item" variants={item}>
 								{/* Text and tick image for each step */}
 								<div className="flex">
-									<div className="Inter text-white text-[4.071vw] text-center font-normal px-2 lg:text-2xl lg:w-11/12 lg:text-start">
+									<div className="Inter text-white text-[4.071vw] text-center font-normal px-2 lg:text-2xl lg:w-11/12 lg:text-start hover:scale-105">
 										{/* Text for each step */}
 										{index === 0 &&
 											"Daig's smart contracts will define the token properties and govern the platform's core functionalities, such as voting, staking, and rewards distribution"}

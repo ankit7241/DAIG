@@ -84,7 +84,7 @@ export default function Intro() {
 						<motion.li key={index} className="item" variants={item}>
 							{/* Text and tick image for each step */}
 							<div className="flex">
-								<div className="Inter text-white text-[3.562vw] text-center font-bold lg:text-2xl">
+								<div className="Inter text-white text-[3.562vw] text-center font-bold lg:text-2xl hover:text-[#FFDF00] active:text-[#D4AF37] hover:scale-110">
 									{/* Text for each step */}
 									{index === 0 && "THE FUTURE OF AI"}
 								</div>
@@ -106,7 +106,7 @@ export default function Intro() {
 						<motion.li key={index} className="item" variants={item}>
 							{/* Text and tick image for each step */}
 							<div className="flex">
-								<div className="Inter text-[6.107vw] text-center font-extrabold bg-introTextGradient text-transparent bg-clip-text lg:text-start lg:text-[42px]">
+								<div className="Inter text-[6.107vw] text-center font-extrabold bg-introTextGradient text-transparent bg-clip-text lg:text-start lg:text-[42px] hover:scale-105">
 									{/* Text for each step */}
 									{index === 0 && "Elevate Defi Governance"}
 								</div>
@@ -133,7 +133,7 @@ export default function Intro() {
 						<motion.li key={index} className="item" variants={item}>
 							{/* Text and tick image for each step */}
 							<div className="flex">
-								<div className="Inter text-white text-[6.107vw] text-center font-normal lg:text-[42px]">
+								<div className="Inter text-white text-[6.107vw] text-center font-normal lg:text-[42px] hover:scale-105">
 									{/* Text for each step */}
 									{index === 0 && "Meet DAIG!"}
 								</div>
@@ -142,19 +142,6 @@ export default function Intro() {
 					))}
 				</motion.ul>
 
-				{/* <motion.div
-					className="Inter text-white text-[6.107vw] text-center font-normal lg:text-[42px]"
-					ref={ref}
-					variants={container}
-					initial="hidden"
-					animate={controls}
-				>
-					Meet DAIG!
-				</motion.div> */}
-				{/* <div className="Inter text-white text-[3.562vw] text-center font-normal lg:text-2xl lg:text-start">
-					Daig's AI evaluates proposals for feasibility, alignment with goals,
-					and risks, empowering informed voting decisions
-				</div> */}
 				<motion.ul
 					className="container flex flex-col items-center lg:items-start"
 					ref={ref}
@@ -168,7 +155,7 @@ export default function Intro() {
 						<motion.li key={index} className="item" variants={item}>
 							{/* Text and tick image for each step */}
 							<div className="flex">
-								<div className="Inter text-white text-[3.562vw] text-center font-normal lg:text-2xl lg:text-start">
+								<div className="Inter text-white text-[3.562vw] text-center font-normal lg:text-2xl lg:text-start hover:scale-105">
 									{/* Text for each step */}
 									{index === 0 &&
 										"Daig's AI evaluates proposals for feasibility, alignment with goals, and risks, empowering informed voting decisions"}
@@ -179,10 +166,13 @@ export default function Intro() {
 				</motion.ul>
 			</div>
 			<div className="relative">
-				<img src={bitcoin} className="lg:w-[758px] lg:h-[758px] shrink-0" />
+				<img
+					src={bitcoin}
+					className="lg:w-[758px] lg:h-[758px] shrink-0 hover:scale-105"
+				/>
 				<img
 					src={graphLine}
-					className="w-[34.860vw] h-[24.427vw] absolute top-0 left-0 -z-10 lg:w-[467px] lg:h-[205px]"
+					className="w-[34.860vw] h-[24.427vw] absolute top-0 left-0 -z-10 lg:w-[467px] lg:h-[205px]  hover:scale-105"
 				/>
 				<img
 					src={ellipse}

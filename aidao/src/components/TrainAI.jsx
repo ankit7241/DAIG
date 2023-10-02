@@ -84,7 +84,7 @@ export default function TrainAI() {
 						<motion.li key={index} className="item" variants={item}>
 							{/* Text and tick image for each step */}
 							<div className="flex">
-								<div className="Inter text-[3.562vw] text-center font-bold bg-trainAIGradient text-transparent bg-clip-text lg:text-2xl">
+								<div className="Inter text-[3.562vw] text-center font-bold bg-trainAIGradient text-transparent bg-clip-text lg:text-2xl hover:scale-105">
 									{/* Text for each step */}
 									{index === 0 && "EARN PASSIVE INCOME"}
 								</div>
@@ -105,7 +105,7 @@ export default function TrainAI() {
 						<motion.li key={index} className="item" variants={item}>
 							{/* Text and tick image for each step */}
 							<div className="flex">
-								<div className="Inter text-white text-[6.107vw] text-center font-extrabold lg:text-[42px]">
+								<div className="Inter text-white text-[6.107vw] text-center font-extrabold lg:text-[42px] hover:scale-105">
 									{/* Text for each step */}
 									{index === 0 && "Train GURU AI to Earn"}
 								</div>
@@ -113,11 +113,6 @@ export default function TrainAI() {
 						</motion.li>
 					))}
 				</motion.ul>
-
-				{/* <div className="Inter text-white text-[4.071vw] text-center font-normal px-2 lg:text-2xl lg:w-2/5 ">
-					Join hands with TG-GPT Bot to train it's AI model on various topics of
-					Web 3.0 and start earning passive income in $GPTG.
-				</div> */}
 
 				<motion.ul
 					className="container flex flex-col items-center justify-center"
@@ -131,7 +126,7 @@ export default function TrainAI() {
 						<motion.li key={index} className="item" variants={item}>
 							{/* Text and tick image for each step */}
 							<div className="flex flex-col items-center justify-center">
-								<div className="Inter text-white text-[4.071vw] text-center font-normal px-2 lg:text-2xl xl:w-2/5">
+								<div className="Inter text-white text-[4.071vw] text-center font-normal px-2 lg:text-2xl xl:w-2/5 hover:scale-105">
 									{/* Text for each step */}
 									{index === 0 &&
 										"Join hands with TG-GPT Bot to train it's AI model on various topics of Web 3.0 and start earning passive income in $GPTG."}
@@ -166,7 +161,10 @@ export default function TrainAI() {
 				</div>
 			</div>
 			<div className="flex relative items-center justify-center">
-				<img src={robot1} className="lg:w-[501px] lg:h-600 z-10" />
+				<img
+					src={robot1}
+					className="lg:w-[501px] lg:h-600 z-10 hover:scale-105"
+				/>
 				<img src={ellipse} className="absolute" />
 			</div>
 			<div className="flex items-center justify-center">

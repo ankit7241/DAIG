@@ -107,7 +107,7 @@ const Typewriter = ({ phrases, onTypingComplete }) => {
 
 	return (
 		<div className="flex justify-center items-center">
-			<div className="Inter text-[#FFDF00] text-2xl text-center font-extrabold xl:text-5xl xl:flex xl:text-start xl:w-[700px] z-10">
+			<div className="Inter text-[#FFDF00] text-2xl text-center font-extrabold xl:text-5xl xl:flex xl:text-start xl:w-[700px] z-10 hover:scale-105">
 				{typedText}
 			</div>
 		</div>
@@ -146,7 +146,7 @@ export default function Hero() {
 				<div className="border border-white border-r-2 w-[76.336vw] md:w-[500px] xl:w-[600px]"></div>
 
 				<div className="flex flex-col ">
-					<div className="Inter text-white text-2xl xl:text-5xl text-center font-extrabold xl:flex xl:text-start xl:w-[600px] z-10">
+					<div className="Inter text-white text-2xl xl:text-5xl text-center font-extrabold xl:flex xl:text-start xl:w-[600px] z-10 hover:scale-105">
 						Unlocking the Full Potential Of DAOs with
 					</div>
 					<Typewriter
@@ -155,7 +155,7 @@ export default function Hero() {
 					/>
 				</div>
 
-				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px] z-10">
+				<div className="Inter text-white text-xl text-center font-medium xl:flex xl:text-start xl:text-3xl xl:w-[600px] z-10 hover:scale-105">
 					Empower DeFi Governance with AI-Powered Decisions
 				</div>
 				<div className="flex justify-between w-full absolute top-28 xl:hidden -z-10">
@@ -167,7 +167,7 @@ export default function Hero() {
 					<img src={blurCircle} className="w-1/3 h-1/3" />
 					<img src={blurCircle} className="w-1/4 h-1/4" />
 				</div>
-				<img src={robot} className="w-2/3 xl:hidden" />
+				<img src={robot} className="w-2/3 xl:hidden hover:scale-105" />
 
 				{/* <div className="inline-flex items-start gap-4 mt-12 xl:gap-24">
 					<button className="flex p-2 justify-center items-center rounded-[0.787px] border-[0.787px] border-[#C2A502] bg-daigGradient xl:p-6 xl:rounded-[2px] hover:bg-goldHoverGradient active:bg-goldActiveGradient hover:text-[#E0E0E0] active:text-[#D0D0D0] Inter text-white text-[3vw] text-center font-bold xl:text-[24px] hover:scale-105">
@@ -205,7 +205,7 @@ export default function Hero() {
 				</div>
 
 				<div className="flex flex-col gap-8 mt-24">
-					<div className="Inter text-white text-[4.580vw] text-center font-bold xl:text-2xl xl:text-start">
+					<div className="Inter text-white text-[4.580vw] text-center font-bold xl:text-2xl xl:text-start hover:scale-105">
 						OVERVIEW
 					</div>
 					<div className="flex justify-center items-center gap-3" ref={ref}>
@@ -278,7 +278,10 @@ export default function Hero() {
 					</div> */}
 				</div>
 			</div>
-			<img src={robot} className="hidden xl:flex w-[635px] h-[1024px]" />
+			<img
+				src={robot}
+				className="hidden xl:flex w-[635px] h-[1024px] hover:scale-105"
+			/>
 			<div className="hidden xl:flex justify-between w-full absolute top-96">
 				<img src={bgCircleLeft} className="w-[30vw]" />
 				<img src={bgCircleRight} className="w-[30vw]" />

@@ -18,7 +18,7 @@ export default function Footer() {
 						/>
 					</div>
 					<div className="flex flex-col gap-6">
-						<div className="text-white Roboto text-[6.107vw] font-black md:text-3xl">
+						<div className="text-white Roboto text-[6.107vw] font-black md:text-3xl hover:scale-105">
 							Sign up to Our Newsletter
 						</div>
 						<div className="flex flex-col gap-6 xl:flex-row">
@@ -34,7 +34,7 @@ export default function Footer() {
 							</div>
 						</div>
 					</div>
-					<div className="text-[#808080] text-center font-normal text-base xl:text-lg Roboto w-[225px] xl:w-full xl:text-start">
+					<div className="text-[#808080] text-center font-normal text-base xl:text-lg Roboto w-[225px] xl:w-full xl:text-start hover:scale-105">
 						For contact and queries, please contact@TGbot.io
 					</div>
 				</div>
@@ -84,7 +84,7 @@ export default function Footer() {
 				</div>
 			</div>
 			<div className="flex flex-col items-center pt-24 gap-28">
-				<div className="text-white Roboto text-[4.071vw] text-center font-normal w-3/4 md:text-2xl">
+				<div className="text-white Roboto text-[4.071vw] text-center font-normal w-3/4 md:text-2xl hover:scale-105">
 					TG-GPT Bots is a next-generation blockchain AI tool empowering Web 3.0
 					communities fuelling their creativity and productivity like never
 					before !🤖👨‍💻
@@ -95,7 +95,7 @@ export default function Footer() {
 					<img src={instagramIcon} alt="" className="hover:scale-125" />
 					<img src={telegramIcon} alt="" className="hover:scale-125" />
 				</div>
-				<div className="text-[#808080] Roboto text-[3.817vw] font-medium w-3/5 md:text-2xl md:text-center">
+				<div className="text-[#808080] Roboto text-[3.817vw] font-medium w-3/5 md:text-2xl md:text-center hover:scale-105">
 					Copyrights © 2023. TG-GPT Bots OÜ.All rights reserved.
 				</div>
 			</div>
